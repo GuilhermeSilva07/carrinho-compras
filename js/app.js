@@ -1,4 +1,7 @@
 
+let totalGeral = 0;
+document.getElementById('lista-produtos').innerHTML = '';   //Zerando os valores
+document.getElementById('valor-total').textContent = 'R$ 0';
 
 function adicionar() {
     //recuperar valores nome do produto, quantidade e valor
@@ -17,6 +20,14 @@ function adicionar() {
     carrinho.innerHTML = carrinho.innerHTML + `<section class="carrinho__produtos__produto">
     <span class="texto-azul">${quantidade}</span> ${nomeProduto} <span class="texto-azul">R$${preco}</span>
   </section>`;
+
+  //Somando o valor total
+ totalGeral = totalGeral + preco;
+
+ let campoTotal = document.getElementById('valor-total')
+
+ campoTotal.textContent = `R$ ${totalGeral}`
+ document.getElementById('quantidade').value = 0; // Zera o valor da quantidade de produtos apos selecionar outro
 }
 
 
